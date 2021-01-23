@@ -1,7 +1,7 @@
 import { Toolbar } from "@material-ui/core";
 import React from "react";
 import { Navigation } from "../../components/Navigation/Navigation";
-import styles from "./Shell.module.css";
+import styles from "./Shell.module.scss";
 
 interface IShellProps {
   children: React.ReactNode;

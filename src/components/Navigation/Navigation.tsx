@@ -1,8 +1,8 @@
 import { Drawer, Toolbar, Typography, Divider, List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 import { MessageOutlined, EditOutlined, SettingsOutlined } from "@material-ui/icons";
 import React from "react";
-import logo from "./paper-plane.png";
-import styles from './Navigation.module.css';
+import logo from "../../assets/images/paper-plane.png";
+import styles from './Navigation.module.scss';
 
 export const Navigation = () => {
   return (
