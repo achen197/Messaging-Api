@@ -6,9 +6,10 @@
   }
 
   .list {
-    background: #f1f1f1;
+    background: #f6f6f6;
     border-radius: 8px;
     width: 100%;
+    padding: 1rem;
   }
 
   .message {
@@ -18,11 +19,16 @@
       padding: 1rem;
     }
 
+    .messageSelected {
+        background: #fff;
+        border-radius: 8px;
+    }
+
     .messageTitle {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-weight: 700;
+      font-weight: bold;
 
       span {
         font-size: 0.7rem;

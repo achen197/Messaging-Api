@@ -30,7 +30,9 @@ export const MessagesList = (props: IMessagesListProps) => {
               props.setSelectedMessage && props.setSelectedMessage(m)
             }
             alignItems="flex-start"
+            classes={{ selected: styles.messageSelected }}
             className={styles.messageListContainer}
+            selected={props.selectedMessage === m}
           >
             <ListItemAvatar>
               <Avatar classes={{ root: styles.avatar }}>
