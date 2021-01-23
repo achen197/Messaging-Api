@@ -1,4 +1,3 @@
-import { Toolbar } from "@material-ui/core";
 import React from "react";
 import { Navigation } from "../../components/Navigation/Navigation";
 import styles from "./Shell.module.scss";
@@ -12,7 +11,6 @@ export const Shell = (props: IShellProps) => {
     <div className={styles.root}>
       <Navigation />
       <main className={styles.content}>
-        <Toolbar />
         {props.children}
       </main>
     </div>

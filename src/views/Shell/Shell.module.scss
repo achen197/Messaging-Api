@@ -1,8 +1,9 @@
 .root {
   display: flex;
-  
-  img {
-    width: 30px;
-    margin-right: 1rem;
+  height: 98vh;
+
+  .content {
+    width: 100%;
+    margin: 1rem;
   }
 }

@@ -1,19 +1,36 @@
-import { Box, List, ListItem, ListItemAvatar, Avatar, ListItemText, Typography, Divider } from "@material-ui/core";
+import {
+  Box,
+  List,
+  ListItem,
+  ListItemAvatar,
+  Avatar,
+  ListItemText,
+  Typography,
+  Divider,
+} from "@material-ui/core";
 import moment from "moment";
 import React from "react";
 import { MessageDto } from "./Messages";
 import styles from "./Messages.module.scss";
 
 interface IMessagesListProps {
-    messages: MessageDto[];
+  messages: MessageDto[];
+  selectedMessage: MessageDto | undefined;
+  setSelectedMessage: (value: MessageDto) => void;
 }
-  
+
 export const MessagesList = (props: IMessagesListProps) => {
   return (
     <Box className={styles.list}>
       {props.messages.map((m, i) => (
         <List key={i} className={styles.message}>
-          <ListItem alignItems="flex-start">
+          <ListItem
+            button
+            onClick={() =>
+              props.setSelectedMessage && props.setSelectedMessage(m)
+            }
+            alignItems="flex-start"
+          >
             <ListItemAvatar>
               <Avatar classes={{ root: styles.avatar }}>
                 {m.messageId.slice(0, 1)}
@@ -38,7 +55,7 @@ export const MessagesList = (props: IMessagesListProps) => {
               }
             />
           </ListItem>
-          <Divider variant="inset" component="li" />
+          <Divider variant="middle" component="li" />
         </List>
       ))}
     </Box>

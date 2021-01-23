@@ -7,9 +7,12 @@ export const Routes = () => {
   return (
     <Shell>
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/messages">
           <Messages />
         </Route>
+        <Route exact path={"messages/:messageId"}>
+            <Messages />
+          </Route>
         <Route exact path="/subscriptions">
           <Messages />
         </Route>
