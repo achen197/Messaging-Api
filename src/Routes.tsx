@@ -1,6 +1,6 @@
 import { Route, Switch } from "react-router-dom";
 import React from "react";
-import { Shell } from "./views/Shell/Shell";
+import { Shell } from "./components/Shell/Shell";
 import { Messages } from "./views/Messages/Messages";
 
 export const Routes = () => {
