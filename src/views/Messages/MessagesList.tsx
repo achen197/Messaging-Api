@@ -10,7 +10,7 @@ import {
 } from "@material-ui/core";
 import moment from "moment";
 import React from "react";
-import { MessageDto } from "./Messages";
+import { MessageDto } from "../../models/interfaces";
 import styles from "./Messages.module.scss";
 
 interface IMessagesListProps {
@@ -36,15 +36,13 @@ export const MessagesList = (props: IMessagesListProps) => {
               selected={props.selectedMessage === m}
             >
               <ListItemAvatar>
-                <Avatar classes={{ root: styles.avatar }}>
-                  {m.messageId.slice(0, 1)}
-                </Avatar>
+                <Avatar classes={{ root: styles.avatar }}>?</Avatar>
               </ListItemAvatar>
               <ListItemText
                 primary={
                   <div className={styles.messageTitle}>
                     {m.from}
-                    <span>{moment(m.sentTimestamp).format("DD/MM/YYYY")}</span>
+                    <span>{moment(m.received).format("DD/MM/YYYY")}</span>
                   </div>
                 }
                 secondary={

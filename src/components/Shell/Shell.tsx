@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigation } from "../../components/Navigation/Navigation";
+import { Navigation } from "../Navigation/Navigation";
 import styles from "./Shell.module.scss";
 
 interface IShellProps {

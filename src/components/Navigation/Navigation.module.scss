@@ -1,9 +1,28 @@
 .navigation {
-  width: 210px;
+  width: 250px;
   flex-shrink: 0;
-  
+
+  .paper {
+    width: 250px;
+  }
+
   img {
     width: 30px;
     margin-right: 1rem;
+  }
+
+  .items {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+
+    .subscriptionDetails {
+      margin-top: 0.5rem;
+      span {
+        display: block;
+        padding-top: 0.5rem;
+      }
+    }
   }
 }
