@@ -11,7 +11,7 @@ interface ILoadingIndicatorProps {
 export const LoadingIndicator = (props: ILoadingIndicatorProps) => {
   return (
     <div className={styles.container}>
-      <CircularProgress size={props.size} data-testid={"loading-indicator"} />
+      <CircularProgress size={props.size} />
       <div className={styles.text}>{props.text}</div>
     </div>
   );

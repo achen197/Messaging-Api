@@ -31,7 +31,7 @@ export const MessagesList = (props: IMessagesListProps) => {
                 props.setSelectedMessage && props.setSelectedMessage(m)
               }
               alignItems="flex-start"
-              classes={{ selected: styles.messageSelected }}
+              classes={{ selected: styles.messageSelected, button: styles.messageButton}}
               className={styles.messageListContainer}
               selected={props.selectedMessage === m}
             >
@@ -42,7 +42,9 @@ export const MessagesList = (props: IMessagesListProps) => {
                 primary={
                   <div className={styles.messageTitle}>
                     {m.from}
-                    <span>{moment(m.received).format("DD/MM/YYYY")}</span>
+                    <span>
+                      {moment.unix(parseInt(m.received)).format("DD/MM/YYYY")}
+                    </span>
                   </div>
                 }
                 secondary={
@@ -57,7 +59,6 @@ export const MessagesList = (props: IMessagesListProps) => {
                 }
               />
             </ListItem>
-            <Divider variant="middle" component="li" />
           </List>
         ))
       ) : (

@@ -18,7 +18,7 @@ export const MessageDetail = (props: IMessageDetailProps) => {
               <Avatar classes={{ root: styles.avatar }}>?</Avatar>
               <span>{props.message.from}</span>
             </div>
-            <span>{moment(props.message.received).calendar()}</span>
+            <span>{moment.unix(parseInt(props.message.received)).calendar()}</span>
           </Grid>
           <Grid item>
             <p>{props.message.body}</p>

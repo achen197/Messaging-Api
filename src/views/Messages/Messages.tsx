@@ -22,15 +22,7 @@ export const Messages = () => {
         setMessages(res);
       })
       .catch((e) => {
-        toast.error(e,  {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        toast.error("Error retrieving messages");
       })
       .finally(() => {
         setIsLoading(false);

@@ -6,15 +6,16 @@ import {
   ListItemIcon,
   ListItemText,
   Toolbar,
-  Typography,
+  Typography
 } from "@material-ui/core";
 import {
   EditOutlined,
   MessageOutlined,
-  SettingsOutlined,
+  SettingsOutlined
 } from "@material-ui/icons";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import logo from "../../assets/images/paper-plane.png";
 import { SubscriptionDto } from "../../models/interfaces";
 import { getSubscription } from "../../services/api";
@@ -28,7 +29,7 @@ export const Navigation = () => {
       .then((res) => {
         setSubscription(res[0]);
       })
-      .catch((e) => console.log(e));
+      .catch((e) => toast.error('Error retrieving subscription'));
   }, []);
 
   return (
@@ -72,13 +73,13 @@ export const Navigation = () => {
               <ListItemText
                 primary={"Subscription Details"}
                 secondary={
-                  <div className={styles.subscriptionDetails}>
+                  <span className={styles.subscriptionDetails}>
                     {subscription.number}
                     <span>
                       Subscription expires{" "}
                       {moment(subscription.expires).format("DD/MM/YYYY")}
                     </span>
-                  </div>
+                  </span>
                 }
               />
             </ListItem>
