@@ -6,15 +6,16 @@ import {
   ListItemIcon,
   ListItemText,
   Toolbar,
-  Typography
+  Typography,
 } from "@material-ui/core";
 import {
   EditOutlined,
   MessageOutlined,
-  SettingsOutlined
+  SettingsOutlined,
 } from "@material-ui/icons";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import logo from "../../assets/images/paper-plane.png";
 import { SubscriptionDto } from "../../models/interfaces";
@@ -24,12 +25,15 @@ import styles from "./Navigation.module.scss";
 export const Navigation = () => {
   const [subscription, setSubscription] = useState<SubscriptionDto>();
 
+  const location = useLocation();
+  // const noDrawer = '/' | '/login' | '/sign-up'
+
   useEffect(() => {
     getSubscription()
       .then((res) => {
         setSubscription(res[0]);
       })
-      .catch((e) => toast.error('Error retrieving subscription'));
+      .catch((e) => toast.error("Error retrieving subscription"));
   }, []);
 
   return (
@@ -39,6 +43,7 @@ export const Navigation = () => {
       variant="permanent"
       anchor="left"
     >
+      {console.log(location.pathname)}
       <Toolbar>
         <img src={logo} alt="Logo" />
         <Typography variant="h6" noWrap>
@@ -48,24 +53,30 @@ export const Navigation = () => {
       <Divider />
       <div className={styles.items}>
         <List>
-          <ListItem button>
-            <ListItemIcon>
-              <MessageOutlined />
-            </ListItemIcon>
-            <ListItemText primary="Messages" />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <EditOutlined />
-            </ListItemIcon>
-            <ListItemText primary="Subscriptions" />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <SettingsOutlined />
-            </ListItemIcon>
-            <ListItemText primary="Settings" />
-          </ListItem>
+          <Link to="/messages">
+            <ListItem button>
+              <ListItemIcon>
+                <MessageOutlined />
+              </ListItemIcon>
+              <ListItemText primary="Messages" />
+            </ListItem>
+          </Link>
+          <Link to="/subscriptions">
+            <ListItem button>
+              <ListItemIcon>
+                <EditOutlined />
+              </ListItemIcon>
+              <ListItemText primary="Subscriptions" />
+            </ListItem>
+          </Link>
+          <Link to="/settings">
+            <ListItem button>
+              <ListItemIcon>
+                <SettingsOutlined />
+              </ListItemIcon>
+              <ListItemText primary="Settings" />
+            </ListItem>
+          </Link>
         </List>
         {subscription && (
           <List>
