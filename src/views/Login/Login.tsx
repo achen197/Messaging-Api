@@ -1,5 +1,6 @@
 import { Button, Grid, TextField } from "@material-ui/core";
 import React from "react";
+import { login } from "../../services/api";
 
 export const Login = () => {
   return (
@@ -14,7 +15,7 @@ export const Login = () => {
         <form noValidate autoComplete="off">
           <TextField variant="outlined" label="Email" />
           <TextField variant="outlined" label="Password" />
-          <Button>Login</Button>
+          <Button onClick={login}>Login</Button>
         </form>
       </Grid>
     </Grid>

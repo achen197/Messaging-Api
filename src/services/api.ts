@@ -20,3 +20,14 @@ export const getSubscription = () => {
       throw e;
     });
 };
+
+export const login = () => {
+	return axios
+	.post(`${BASE_URL}/users/login`,{username: 'Michael', password: 'qwaszx'},{
+		withCredentials: true
+	})
+	.then(res => window.location.href = '/messages') //FIXME: Maybe use react router here??
+	.catch(e => {
+	 throw e;
+	})
+}
