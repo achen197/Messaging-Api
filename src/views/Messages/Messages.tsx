@@ -36,20 +36,22 @@ export const Messages = () => {
       spacing={1}
       className={styles.messagesContainer}
     >
-      <Grid container item xs={4}>
-        {!isLoading ? (
-          <MessagesList
-            selectedMessage={selectedMessage}
-            setSelectedMessage={setSelectedMessage}
-            messages={messages}
-          />
-        ) : (
-          <LoadingIndicator />
-        )}
-      </Grid>
-      <Grid container item xs={8}>
-        <MessageDetail message={selectedMessage} />
-      </Grid>
+      {!isLoading ? (
+        <>
+          <Grid container item xs={4}>
+            <MessagesList
+              selectedMessage={selectedMessage}
+              setSelectedMessage={setSelectedMessage}
+              messages={messages}
+            />
+          </Grid>
+          <Grid container item xs={8}>
+            <MessageDetail message={selectedMessage} />
+          </Grid>
+        </>
+      ) : (
+        <LoadingIndicator />
+      )}
     </Grid>
   );
 };
