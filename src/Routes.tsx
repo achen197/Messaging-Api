@@ -21,9 +21,6 @@ export const Routes = () => {
         <Route exact path="/messages">
           <Messages />
         </Route>
-        <Route exact path={"messages/:messageId"}>
-          <Messages />
-        </Route>
         <Route exact path="/subscriptions">
           <Messages />
         </Route>

@@ -1,12 +1,11 @@
 import {
+  Avatar,
   Box,
   List,
   ListItem,
   ListItemAvatar,
-  Avatar,
   ListItemText,
   Typography,
-  Divider,
 } from "@material-ui/core";
 import moment from "moment";
 import React from "react";
@@ -31,7 +30,10 @@ export const MessagesList = (props: IMessagesListProps) => {
                 props.setSelectedMessage && props.setSelectedMessage(m)
               }
               alignItems="flex-start"
-              classes={{ selected: styles.messageSelected, button: styles.messageButton}}
+              classes={{
+                selected: styles.messageSelected,
+                button: styles.messageButton,
+              }}
               className={styles.messageListContainer}
               selected={props.selectedMessage === m}
             >

@@ -1,4 +1,6 @@
 import {
+  AppBar,
+  Button,
   Divider,
   Drawer,
   List,
@@ -26,7 +28,6 @@ export const Navigation = () => {
   const [subscription, setSubscription] = useState<SubscriptionDto>();
 
   const location = useLocation();
-  // const noDrawer = '/' | '/login' | '/sign-up'
 
   useEffect(() => {
     getSubscription()
@@ -37,66 +38,69 @@ export const Navigation = () => {
   }, []);
 
   return (
-    <Drawer
-      className={styles.navigation}
-      classes={{ paper: styles.paper }}
-      variant="permanent"
-      anchor="left"
-    >
-      {console.log(location.pathname)}
-      <Toolbar>
-        <img src={logo} alt="Logo" />
-        <Typography variant="h6" noWrap>
-          Not Atlassian
-        </Typography>
-      </Toolbar>
-      <Divider />
-      <div className={styles.items}>
-        <List>
-          <Link to="/messages">
-            <ListItem button>
-              <ListItemIcon>
-                <MessageOutlined />
-              </ListItemIcon>
-              <ListItemText primary="Messages" />
-            </ListItem>
-          </Link>
-          <Link to="/subscriptions">
-            <ListItem button>
-              <ListItemIcon>
-                <EditOutlined />
-              </ListItemIcon>
-              <ListItemText primary="Subscriptions" />
-            </ListItem>
-          </Link>
-          <Link to="/settings">
-            <ListItem button>
-              <ListItemIcon>
-                <SettingsOutlined />
-              </ListItemIcon>
-              <ListItemText primary="Settings" />
-            </ListItem>
-          </Link>
-        </List>
-        {subscription && (
-          <List>
-            <ListItem>
-              <ListItemText
-                primary={"Subscription Details"}
-                secondary={
-                  <span className={styles.subscriptionDetails}>
-                    {subscription.number}
-                    <span>
-                      Subscription expires{" "}
-                      {moment(subscription.expires).format("DD/MM/YYYY")}
-                    </span>
-                  </span>
-                }
-              />
-            </ListItem>
-          </List>
-        )}
-      </div>
-    </Drawer>
+    <>
+      {location.pathname !== "/" ? (
+        <Drawer
+          className={styles.navigation}
+          classes={{ paper: styles.paper }}
+          variant="permanent"
+          anchor="left"
+        >
+          <Toolbar>
+            <img src={logo} alt="Logo" />
+            <Typography variant="h6" noWrap>
+              Not Atlassian
+            </Typography>
+          </Toolbar>
+          <Divider />
+          <div className={styles.items}>
+            <List>
+              <Link to="/messages">
+                <ListItem button>
+                  <ListItemIcon>
+                    <MessageOutlined />
+                  </ListItemIcon>
+                  <ListItemText primary="Messages" />
+                </ListItem>
+              </Link>
+              <Link to="/subscriptions">
+                <ListItem button>
+                  <ListItemIcon>
+                    <EditOutlined />
+                  </ListItemIcon>
+                  <ListItemText primary="Subscriptions" />
+                </ListItem>
+              </Link>
+              <Link to="/settings">
+                <ListItem button>
+                  <ListItemIcon>
+                    <SettingsOutlined />
+                  </ListItemIcon>
+                  <ListItemText primary="Settings" />
+                </ListItem>
+              </Link>
+            </List>
+            {subscription && (
+              <List>
+                <ListItem>
+                  <ListItemText
+                    primary={"Subscription Details"}
+                    secondary={
+                      <span className={styles.subscriptionDetails}>
+                        {subscription.number}
+                        <span>
+                          Subscription expires{" "}
+                          {moment(subscription.expires).format("DD/MM/YYYY")}
+                        </span>
+                      </span>
+                    }
+                  />
+                </ListItem>
+              </List>
+            )}
+          </div>
+        </Drawer>
+      ) : null}
+    </>
   );
 };
