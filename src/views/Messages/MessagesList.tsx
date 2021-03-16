@@ -1,6 +1,6 @@
 import {
   Avatar,
-  Box,
+  Paper,
   List,
   ListItem,
   ListItemAvatar,
@@ -20,7 +20,7 @@ interface IMessagesListProps {
 
 export const MessagesList = (props: IMessagesListProps) => {
   return (
-    <Box className={styles.list}>
+    <Paper className={styles.list}>
       {props.messages.length > 0 ? (
         props.messages.map((m, i) => (
           <List key={i} className={styles.message}>
@@ -66,6 +66,6 @@ export const MessagesList = (props: IMessagesListProps) => {
       ) : (
         <>You have no messages</>
       )}
-    </Box>
+    </Paper>
   );
 };
