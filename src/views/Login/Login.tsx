@@ -6,7 +6,8 @@ export const Login = () => {
   const [email, setEmail] = useState<String>('');
   const [password, setPassword] = useState<String>('');
   const [isLoading, setIsLoading] = useState<Boolean>(false)
-  function handleSubmit(e:React.FormEvent<HTMLInputElement>){
+
+  const handleSubmit = (e:React.FormEvent<HTMLInputElement>) => {
     e.preventDefault()
     login(email, password)
   } 

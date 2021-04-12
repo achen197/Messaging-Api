@@ -35,9 +35,6 @@ export const login = (username: String, password: String) => {
 	.post(`${BASE_URL}/users/login`,{username: username, password: password},{
 		withCredentials: true
   })
-    .then(res => {
-    console.log(res)
-  })
 	.then(res => window.location.href="./messages") //FIXME: Maybe use react router here??
 	.catch(e => {
 	 throw e;

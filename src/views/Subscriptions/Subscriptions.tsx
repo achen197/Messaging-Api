@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { LoadingIndicator } from "../../components/LoadingIndicator/LoadingIndicator";
 import { SubscriptionDto } from "../../models/interfaces";
 import { getSubscriptions, createSubscriptions } from "../../services/api";
-import "./Subscriptions.css"
+import styles from "./Subscriptions.module.scss";
 
 export const Subscriptions = () => {
     const [subscriptions, setSubscriptions] = useState<SubscriptionDto[]>([]);
@@ -26,12 +26,11 @@ export const Subscriptions = () => {
             .finally(() => setIsLoading(false))
     }, [])
 
-    function createSub(){
+    const createSub = () => {
         return Promise.resolve()
             .then(() => setIsLoading(true))
             .then(() => createSubscriptions())
             .then(newSub => {
-                console.log(newSub)
                 toast.success('Subscription Created')
                 setSubscriptions(subscriptions.concat(newSub))
             })
@@ -59,7 +58,7 @@ export const Subscriptions = () => {
                             )} 
                         </ul>
                     </Grid>
-                    <Fab onClick={ createSub } className="btn-group-float" color="primary">
+                    <Fab onClick={ createSub } className={styles.btnFloat} color="primary">
                         +Sub
                     </Fab>
                 </>
