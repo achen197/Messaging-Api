@@ -13,9 +13,20 @@ export const getMessages = () => {
 };
 
 export const getSubscription = () => {
-    return axios
+  return axios
     .get(`${BASE_URL}/subscriptions`)
     .then((res) => res.data as SubscriptionDto[])
+    .catch((e) => {
+      throw e;
+    });
+};
+
+export const createSubscription = (activeDays: number) => {
+  return axios
+    .post(`${BASE_URL}/subscriptions`, {
+      activeDays: activeDays,
+      notifyURL: "https://sms-app-dev.herokuapp.com",
+    })
     .catch((e) => {
       throw e;
     });

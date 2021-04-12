@@ -9,10 +9,10 @@ interface IShellProps {
 export const Shell = (props: IShellProps) => {
   return (
     <div className={styles.root}>
-      <Navigation />
-      <main className={styles.content}>
-        {props.children}
-      </main>
+      <header className={styles.header}>
+        <Navigation />
+      </header>
+      <main className={styles.content}>{props.children}</main>
     </div>
   );
 };

@@ -32,13 +32,13 @@ export const Messages = () => {
   return (
     <Grid
       container
-      direction="row"
       spacing={1}
       className={styles.messagesContainer}
     >
+      <h2>Messages</h2>
       {!isLoading ? (
         <>
-          <Grid container item xs={4}>
+          <Grid container item xs={4} className={styles.fullHeight}>
             <MessagesList
               selectedMessage={selectedMessage}
               setSelectedMessage={setSelectedMessage}
