@@ -21,7 +21,7 @@ import { Link, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import logo from "../../assets/images/paper-plane.png";
 import { SubscriptionDto } from "../../models/interfaces";
-import { getSubscription } from "../../services/api";
+import { getSubscriptions } from "../../services/api";
 import styles from "./Navigation.module.scss";
 
 export const Navigation = () => {
@@ -30,7 +30,7 @@ export const Navigation = () => {
   const location = useLocation();
 
   useEffect(() => {
-    getSubscription()
+    getSubscriptions()
       .then((res) => {
         setSubscription(res[0]);
       })

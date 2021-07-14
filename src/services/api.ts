@@ -12,7 +12,7 @@ export const getMessages = () => {
     });
 };
 
-export const getSubscription = () => {
+export const getSubscriptions = () => {
     return axios
     .get(`${BASE_URL}/subscriptions`)
     .then((res) => res.data as SubscriptionDto[])
@@ -20,3 +20,23 @@ export const getSubscription = () => {
       throw e;
     });
 };
+
+export const createSubscriptions = () => {
+  return axios
+    .get(`${BASE_URL}/subscriptions/create`)
+    .then(res => res.data as SubscriptionDto[])
+    .catch(e => {
+      throw e
+    })
+}
+
+export const login = (username: String, password: String) => {
+	return axios
+	.post(`${BASE_URL}/users/login`,{username: username, password: password},{
+		withCredentials: true
+  })
+	.then(res => window.location.href="./messages") //FIXME: Maybe use react router here??
+	.catch(e => {
+	 throw e;
+	})
+}

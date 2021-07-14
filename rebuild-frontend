@@ -1,0 +1,13 @@
+#bin !bash
+
+echo "Rebuilding notAtlassian frontend"
+
+npm run build
+
+echo "finished build"
+
+echo "Nuking old"
+rm -r ../sms/src/
+mkdir ../sms/src/
+echo "copy new build files to src folder"
+cp -R ./build/* ../sms/src/
